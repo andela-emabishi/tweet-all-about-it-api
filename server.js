@@ -15,20 +15,19 @@ app.get('/api/books', (req, res) => {
       error: 'Missing parameter `name` in query.',
     });
   } else {
-    mongoose.connect(database, err => {
+    mongoose.connect(database, {useMongoClient: true}, err => {
       if (err) {
         console.log(`Error establishing mongoose connection with db ${err}`);  // eslint-disable-line
       } else {
-        Books.find((err, books) => {
-          if (err) {
-            console.log(`Error finding books from model ${err}`); // eslint-disable-line
-          } else {
-            res.json({
-              status: 200,
-              books
-            });
-          }
-        });
+        // mongoose.connection.on('connected', () => {
+          Books.find((err, books) => {
+            if (err) {
+              console.log(`Error finding books from model ${err}`); // eslint-disable-line
+            } else {
+              res.json({ status: 200, books });
+            }
+          });
+        // });
       }
     });
   }
