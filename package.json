@@ -1,0 +1,31 @@
+{
+  "name": "tweet-all-about-it-api",
+  "version": "1.0.0",
+  "description": "API for tweet-all-about-it application",
+  "main": "server.js",
+  "scripts": {
+    "test": "test",
+    "prestart": "mongo < db/seed_data_mongo.sh",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-emabishi/tweet-all-about-it-api.git"
+  },
+  "keywords": [
+    "express",
+    "api",
+    "node"
+  ],
+  "author": "Mabishi Elizabeth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela-emabishi/tweet-all-about-it-api/issues"
+  },
+  "homepage": "https://github.com/andela-emabishi/tweet-all-about-it-api#readme",
+  "dependencies": {
+    "express": "^4.15.4",
+    "mongoose": "^4.11.10"
+  },
+  "devDependencies": {}
+}
