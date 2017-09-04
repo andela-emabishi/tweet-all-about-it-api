@@ -6,7 +6,9 @@
   "scripts": {
     "test": "test",
     "prestart": "mongo < db/seed_data_mongo.sh",
-    "start": "node server.js"
+    "start": "concurrently \"npm run server\" \"npm run client\" ",
+    "server": "node server.js",
+    "client": "cd client && npm start"
   },
   "repository": {
     "type": "git",
@@ -27,5 +29,7 @@
     "express": "^4.15.4",
     "mongoose": "^4.11.10"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "concurrently": "^3.5.0"
+  }
 }

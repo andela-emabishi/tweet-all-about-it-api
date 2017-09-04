@@ -27,15 +27,32 @@ app.get('/api/books', (req, res) => {
           }
         });
       } else {
-        Books.find({ name: param }, (err, book) => {
+        Books.findOne({ name: param }, (err, book) => {
           if (err) {
             res.json({
               error: err,
               status: 404,
               message: `Book of name ${param} not found.`
             });
+          } else if (param === book.name) {
+            const status = JSON.parse(book.borrowed);
+            book.borrowed = !(status);
+            book.save(err => {
+              if (err) {
+                res.json({
+                  error: err,
+                  status: 500,
+                  message: `Failed to save book of ${param}.`
+                });
+              } else {
+                res.json({ status: 200, data: book });
+              }
+            });
           } else {
-            res.json({ status: 200, data: book });
+            res.json({
+              status: 500,
+              message: `Book of name ${param} not found.`
+            });
           }
         });
       }
