@@ -26,35 +26,46 @@ app.get('/api/books', (req, res) => {
             res.json({ status: 200, data: books });
           }
         });
-      } else {
-        Books.findOne({ name: param }, (err, book) => {
-          if (err) {
-            res.json({
-              error: err,
-              status: 404,
-              message: `Book of name ${param} not found.`
-            });
-          } else if (param === book.name) {
-            const status = JSON.parse(book.borrowed);
-            book.borrowed = !(status);
-            book.save(err => {
-              if (err) {
-                res.json({
-                  error: err,
-                  status: 500,
-                  message: `Failed to save book of ${param}.`
+      } else if (param) {
+        try {
+          Books.findOne({ name: param }, (err, book) => {
+            // If the query isn't successful, the 2nd param passed to the callback will be null
+            if (err || book === null) {
+              res.json({
+                error: err,
+                status: 404,
+                message: `Book of name ${param} not found.`
+              });
+            } else {
+              if (param === book.name) {
+                const status = JSON.parse(book.borrowed);
+                book.borrowed = !status;
+                book.save(err => {
+                  if (err) {
+                    res.json({
+                      error: err,
+                      status: 500,
+                      message: `Failed to save book of ${param}.`
+                    });
+                  } else {
+                    res.json({ status: 200, data: book });
+                  }
                 });
               } else {
-                res.json({ status: 200, data: book });
+                res.json({
+                  status: 500,
+                  message: `Book of name ${param} not found.`
+                });
               }
-            });
-          } else {
-            res.json({
-              status: 500,
-              message: `Book of name ${param} not found.`
-            });
-          }
-        });
+            }
+          });
+        } catch (error) {
+          res.json({
+            status: 500,
+            message: `Book of name ${param} not found.`,
+            error,
+          });
+        }
       }
     }
   });
