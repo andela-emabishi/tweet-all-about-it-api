@@ -12,7 +12,7 @@ class Shelf extends React.Component {
     return fetch("/api/books", { accept: "application/json" })
       .then(checkStatus)
       .then(parseJSON)
-      .then((books) => console.log(books));
+      .then((books) => this.getBooks(books));
   }
 
   getBooks(books) {
@@ -25,7 +25,6 @@ class Shelf extends React.Component {
     console.log('books', this.state.books);
     return (
       <div>
-        // <Book books={this.state.books}/>
       </div>
     );
   }
