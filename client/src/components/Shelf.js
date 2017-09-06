@@ -1,26 +1,31 @@
-import React, { Component } from 'react';
+import React  from 'react';
 
 import Book from './Book';
-import { fetchBooks } from '../client';
+import { fetchBooks, checkStatus, parseJSON } from '../client';
 
-class Shelf extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { books: [] };
-  }
+class Shelf extends React.Component {
+    state = { 
+      books: [] 
+    };
   
   componentWillMount() {
-    fetchBooks(this.getBooks);
+    return fetch("/api/books", { accept: "application/json" })
+      .then(checkStatus)
+      .then(parseJSON)
+      .then((books) => console.log(books));
   }
 
   getBooks(books) {
-    this.setState({ books: books });
+    this.setState({
+       books,
+      });
   }
 
   render() {
+    console.log('books', this.state.books);
     return (
       <div>
-        <Book books={this.state.books}/>
+        // <Book books={this.state.books}/>
       </div>
     );
   }
