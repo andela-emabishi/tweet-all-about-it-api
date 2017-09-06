@@ -30,6 +30,12 @@ const BookSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  blurb: {
+    type: String,
+    required: false,
+    unique: true,
+    trim: true,
+  }
 });
 
 module.exports = mongoose.model('Books', BookSchema);

@@ -25,6 +25,7 @@ class Shelf extends React.Component {
     console.log('books', this.state.books);
     return (
       <div>
+        <Book books={this.state.books} />
       </div>
     );
   }

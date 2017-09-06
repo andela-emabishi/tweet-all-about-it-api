@@ -1,34 +1,37 @@
-// import React from 'react';
-// import {
-//   Card,
-//   CardActions,
-//   CardHeader,
-//   CardMedia,
-//   CardTitle,
-//   CardText
-// } from 'material-ui/Card';
-// import FlatButton from 'material-ui/FlatButton';
+import React from 'react';
+import './card.css';
+
+const Book = ({ books }) => {
+  return (
+    <div>
+    <div class="ui cards">
+        {
+        books.map(book => {
+            <div class="card">
+              <div class="content">
+                <img class="right floated mini ui image" src={props.image} />
+                <div class="header">
+                  {props.name}
+                </div>
+                <div class="meta">
+                  {props.author}
+                </div>
+                <div class="description">
+                  {props.blurb}
+                </div>
+              </div>
+              <div class="extra content">
+                <div class="ui two buttons">
+                  <div class="ui basic green button">Borrow</div>
+                </div>
+              </div>
+            </div>
+          })
+        }
+      </div>
+    </div>
+  );
+};
 
 
-// const Book = ({ books }) => {
-//   return (
-//     <div>
-//       {
-//         books.map(book => {
-//           <Card style={{ width: '350px' }}>
-//             <CardTitle avatar='https://placeimg.com/80/80/animals' title={book.name} subtitle={book.author} />
-//             <CardMedia aspectRatio='wide' image={book.url} />
-//             <CardTitle title={book.name} subtitle={book.author} />
-//             <CardText>{'dummyText'}</CardText>
-//             <CardActions>
-//               <FlatButton label='Borrow' />
-//             </CardActions>
-//           </Card>;
-//         })
-//       }
-//     </div>
-//   );
-// };
-
-
-// export default Book;
+export default Book;

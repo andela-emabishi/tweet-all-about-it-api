@@ -7,6 +7,7 @@ db.books.insertMany([
     publisher: 'DKK',
     image: 'http://cdn.collider.com/wp-content/uploads/2016/07/the-lord-of-the-rings-book-cover.jpg',
     borrowed: false,
+    blurb: 'The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien.'
   },
   {
     name: 'The Hobbit' ,
@@ -14,6 +15,7 @@ db.books.insertMany([
     publisher: 'DKK',
     image: 'https://images-na.ssl-images-amazon.com/images/I/41aQPTCmeVL._SY344_BO1,204,203,200_.jpg',
     borrowed: false,
+    blurb: 'he Hobbit is a film series consisting of three high fantasy adventure films directed by Peter Jackson. They are based on the 1937 novel The Hobbit by J. R. R.Tolkien'
   },
   {
     name: 'Half of a Yellow Sun' ,
@@ -21,6 +23,7 @@ db.books.insertMany([
     publisher: 'Oxford',
     image: 'https://images.gr-assets.com/books/1389264642l/11062402.jpg',
     borrowed: false,
+    blurb: 'A novel by Chimamanda'
   },
   {
     name: 'Mastery' ,
@@ -28,6 +31,7 @@ db.books.insertMany([
     publisher: 'DKK',
     image: 'https://images-na.ssl-images-amazon.com/images/I/41FnF8UYX0L._SX349_BO1,204,203,200_.jpg',
     borrowed: false,
+    blurb: 'A novel by Robert Greene'
   },
   {
     name: 'Utopia For Realists' ,
@@ -35,6 +39,7 @@ db.books.insertMany([
     publisher: 'The Correspondent',
     image: 'https://images.gr-assets.com/books/1458278585l/29544996.jpg',
     borrowed: false,
+    blurb: 'A novel by Rutger Bregman'
   }
 ])
 exit
