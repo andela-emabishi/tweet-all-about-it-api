@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Twitter from 'twitter';
 
 import Book from './Book';
 import stockBook from '../defaultBook';
@@ -27,6 +28,26 @@ class Shelf extends React.Component {
   }
 
   tweet() {
+    const client = new Twitter({
+      consumer_key: process.env.TWITTER_CONSUMER_KEY,
+      consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+      access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+      access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+    });
+
+    console.log(process.env.TWITTER_ACCESS_TOKEN_KEY)
+
+    client
+      .post("statuses/update", { status: `Mabishi has borrowed ${this.state.book.name}` })
+      .then((error, tweet, response) => {
+        console.log(tweet);
+        console.log(response);
+        this.setState({ message: 'Tweeted successfully' })
+      })
+      .catch(error => { 
+        this.setState({ message: `Error tweeting, ${error}` })
+        throw error;
+       });
     
   }
 
