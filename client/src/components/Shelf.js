@@ -2,12 +2,16 @@ import React  from 'react';
 
 import Book from './Book';
 import stockBook from '../defaultBook';
+import Borrowed from './Borrowed';
 import { checkStatus, parseJSON } from '../client';
 
 class Shelf extends React.Component {
-    state = { 
-      books: [stockBook],
-    };
+  constructor(props) {
+    super(props);
+    this.state = { books: [stockBook], borrowed: "" };
+    this.handleBorrowClick = this.handleBorrowClick.bind(this)
+  }
+    
   
   componentWillMount() {
     return fetch("/api/books", { accept: "application/json" })
@@ -23,7 +27,10 @@ class Shelf extends React.Component {
   }
 
   handleBorrowClick(name, event) {
-    console.log('Borrowed', name)
+    console.log('Borrowed', name);
+    this.setState({
+      borrowed: name,
+    })
     // TODO: Call function that changes borrowed to true in the db and then calls twitter api
   }
 
@@ -44,6 +51,7 @@ class Shelf extends React.Component {
     return (
       <div>
       {books}
+      <Borrowed name={this.state.borrowed.length !== 0 ? this.state.borrowed : ''} />
       </div>
     );
   }
