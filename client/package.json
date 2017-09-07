@@ -4,11 +4,8 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
-    "dotenv": "^4.0.0",
-    "material-ui": "^0.19.1",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
-    "twitter": "^1.7.1"
+    "react-dom": "^15.6.1"
   },
   "devDependencies": {
     "eslint": "^4.6.1",

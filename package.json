@@ -27,8 +27,11 @@
   "homepage": "https://github.com/andela-emabishi/tweet-all-about-it-api#readme",
   "dependencies": {
     "axios": "^0.16.2",
+    "cors": "^2.8.4",
+    "dotenv": "^4.0.0",
     "express": "^4.15.4",
-    "mongoose": "^4.11.10"
+    "mongoose": "^4.11.10",
+    "twitter": "^1.7.1"
   },
   "devDependencies": {
     "concurrently": "^3.5.0"
