@@ -1,7 +1,7 @@
 import React  from 'react';
 
 import Book from './Book';
-import { fetchBooks, checkStatus, parseJSON } from '../client';
+import { checkStatus, parseJSON } from '../client';
 
 class Shelf extends React.Component {
     state = { 
