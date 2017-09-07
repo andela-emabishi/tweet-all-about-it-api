@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/andela-emabishi/tweet-all-about-it-api#readme",
   "dependencies": {
+    "axios": "^0.16.2",
     "express": "^4.15.4",
     "mongoose": "^4.11.10"
   },

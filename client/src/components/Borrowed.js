@@ -7,6 +7,7 @@ const Borrowed = (props) => {
     <div className="ui floating positive message">
       <div className="header">
           { props.name ? `You have borrowed ${props.name}`: null}
+          {props.message ? `Tweeted`: null }
       </div>
     </div>
   )
