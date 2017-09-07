@@ -22,6 +22,11 @@ class Shelf extends React.Component {
       });
   }
 
+  handleBorrowClick(name, event) {
+    console.log('Borrowed', name)
+    // TODO: Call function that changes borrowed to true in the db and then calls twitter api
+  }
+
   render() {
     const books = this.state.books.map(book => (
       <Book 
@@ -32,6 +37,7 @@ class Shelf extends React.Component {
         image={book.image}
         borrowed={book.borrowed}
         blurb={book.blurb}
+        handleBorrowClick={this.handleBorrowClick}
       />
       )
     )
