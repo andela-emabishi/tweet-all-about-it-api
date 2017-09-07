@@ -1,11 +1,12 @@
 import React  from 'react';
 
 import Book from './Book';
+import stockBook from '../defaultBook';
 import { checkStatus, parseJSON } from '../client';
 
 class Shelf extends React.Component {
     state = { 
-      books: [] 
+      books: [stockBook],
     };
   
   componentWillMount() {
@@ -17,15 +18,26 @@ class Shelf extends React.Component {
 
   getBooks(books) {
     this.setState({
-       books,
+       books: books.data,
       });
   }
 
   render() {
-    console.log('books', this.state.books);
+    const books = this.state.books.map(book => (
+      <Book 
+        key={book._id}
+        name={book.name}
+        author={book.author}
+        publisher={book.publisher}
+        image={book.image}
+        borrowed={book.borrowed}
+        blurb={book.blurb}
+      />
+      )
+    )
     return (
       <div>
-        <Book books={this.state.books} />
+      {books}
       </div>
     );
   }

@@ -5,7 +5,7 @@ db.books.insertMany([
     name: 'Lord of the Rings' ,
     author: 'J.R.R.Tolkien',
     publisher: 'DKK',
-    image: 'http://cdn.collider.com/wp-content/uploads/2016/07/the-lord-of-the-rings-book-cover.jpg',
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfRsG6OXoC5Rw3Lk8KnErhsXNqiqjwOOusPWtL7IOw1f02_xSr',
     borrowed: false,
     blurb: 'The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien.'
   },
@@ -15,7 +15,7 @@ db.books.insertMany([
     publisher: 'DKK',
     image: 'https://images-na.ssl-images-amazon.com/images/I/41aQPTCmeVL._SY344_BO1,204,203,200_.jpg',
     borrowed: false,
-    blurb: 'he Hobbit is a film series consisting of three high fantasy adventure films directed by Peter Jackson. They are based on the 1937 novel The Hobbit by J. R. R.Tolkien'
+    blurb: 'The Hobbit is a film series consisting of three high fantasy adventure films directed by Peter Jackson. They are based on the 1937 novel The Hobbit by J. R. R.Tolkien'
   },
   {
     name: 'Half of a Yellow Sun' ,
